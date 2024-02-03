@@ -19,4 +19,4 @@ aws s3 cp s3://gdelt-open-data/events/20171226.export.csv 20171226.export.csv
 ```
 
 ### Optimizing the query
-By default it takes about 30 seconds and scans 154 GB of data to return a query, by converting it to parquet we can reduce this to about 5 seconds and 2.31 GB of data, reducing the cost considerably.  This requires an EMR cluster and the scripts in the parquet folder.
+By default it takes about 30 seconds and scans 154 GB of data to return a query, by converting it to parquet we can reduce this to about 5 seconds and 2.31 GB of data, reducing the cost considerably.  We'll do this in the next lab.
