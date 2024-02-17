@@ -1,0 +1,1 @@
+Housing dataset appeared in a 1997 paper <em>Sparse Spatial Autoregressions<em> by Pace, R. Kelley and Ronald Barry.
