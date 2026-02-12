@@ -23,10 +23,14 @@ ORDER BY 1 ASC;
 SELECT code, country FROM countries WHERE country = 'Yemen';
 
 #query Yemen's stability by year
-SELECT AVG(e.goldsteinscale) AS stability, SUM(e.numarticles) AS articles,SUM(e.numsources) AS sources, 
-SUM(e.nummentions) AS mentions, e.year
+SELECT 
+    AVG(e.goldsteinscale) AS stability, 
+    SUM(e.numarticles) AS articles,
+    SUM(e.numsources) AS sources, 
+    SUM(e.nummentions) AS mentions, 
+    -- Athena/Presto method:
+    CAST(CAST(e.year AS VARCHAR) || '-01-01' AS DATE) AS event_date
 FROM gdelt.eventsparquet e
 WHERE e.actor1countrycode = 'YEM'
-GROUP BY e.year
-ORDER BY e.year ASC;
-
+GROUP BY 5  -- References the 5th column (event_date)
+ORDER BY event_date ASC;
